@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell an Item - School Marketplace</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f7fb;
+      padding: 20px;
+    }
+
+    .box {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      color: #123b72;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+    }
+
+    label {
+      display: block;
+      margin-top: 18px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #123b72;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #123b72;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <h1>Sell an Item</h1>
+
+  <p>List your item on the school marketplace.</p>
+
+  <form id="sellForm">
+
+    <label>Product Name</label>
+    <input
+      type="text"
+      id="productName"
+      placeholder="e.g. Mathematics textbook"
+      required
+    >
+
+    <label>Price (₦)</label>
+    <input
+      type="number"
+      id="price"
+      placeholder="Enter price"
+      min="0"
+      required
+    >
+
+    <label>Category</label>
+    <select id="category" required>
+      <option value="">Select category</option>
+      <option>Books</option>
+      <option>Clothing</option>
+      <option>School Items</option>
+      <option>Electronics</option>
+      <option>Food</option>
+      <option>Others</option>
+    </select>
+
+    <label>Description</label>
+    <textarea
+      id="description"
+      placeholder="Describe your item..."
+      required
+    ></textarea>
+
+    <label>Quantity</label>
+    <input
+      type="number"
+      id="quantity"
+      min="1"
+      value="1"
+      required
+    >
+
+    <label>Product Photo</label>
+    <input
+      type="file"
+      id="photo"
+      accept="image/*"
+    >
+
+    <button type="submit">List Item for Sale</button>
+
+  </form>
+
+  <p id="message"></p>
+
+  <a class="back" href="index.html">← Back to Marketplace</a>
+
+</div>
+
+<script>
+  document.getElementById("sellForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("message").textContent =
+      "Your item form is ready. We will connect it to the marketplace next.";
+  });
+</script>
+
+</body>
+</html>
