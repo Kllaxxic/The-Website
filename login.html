@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - School Marketplace</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f5f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .box {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      color: #123b72;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 22px;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: #123b72;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .signup {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    a {
+      color: #123b72;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #message {
+      margin-top: 15px;
+      text-align: center;
+      color: #c00;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <h1>Welcome Back</h1>
+  <p class="subtitle">School Marketplace</p>
+
+  <form id="loginForm">
+
+    <label>Email</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="Enter your email"
+      required
+    >
+
+    <label>Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter your password"
+      required
+    >
+
+    <button type="submit">Login</button>
+
+  </form>
+
+  <p id="message"></p>
+
+  <div class="signup">
+    Don't have an account?
+    <a href="signup.html">Create one</a>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("message").textContent =
+      "Login connection will be activated next.";
+  });
+</script>
+
+</body>
+</html>
