@@ -134,14 +134,51 @@
 
 </div>
 
+<<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-  document.getElementById("signupForm").addEventListener("submit", function(event) {
+  const SUPABASE_URL = "https://rqfdgegbryvxtkzdjszj.supabase.co";
+
+  const SUPABASE_KEY = "sb_publishable_Gytib6OuVGEUKA2VSXByYg_rzcOWg7z";
+
+  const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  document.getElementById("signupForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    document.getElementById("message").textContent =
-      "Account connection will be activated next.";
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    const message = document.getElementById("message");
+
+    message.textContent = "Creating account...";
+
+    const { data, error } = await supabaseClient.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          full_name: name
+        }
+      }
+    });
+
+    if (error) {
+      message.textContent = error.message;
+      return;
+    }
+
+    message.textContent =
+      "Account created successfully! Check your email if confirmation is required.";
   });
 </script>
+  
+    
+
 
 </body>
 </html>
