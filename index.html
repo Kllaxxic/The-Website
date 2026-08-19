@@ -3,10 +3,242 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
+  <title>School Marketplace</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #123b72;
+      color: white;
+      padding: 18px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .account {
+      background: white;
+      color: #123b72;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 30px 18px;
+      background: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .search {
+      width: 100%;
+      max-width: 500px;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .buttons {
+      margin-top: 18px;
+    }
+
+    .btn {
+      padding: 11px 18px;
+      border: none;
+      border-radius: 8px;
+      margin: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .buy {
+      background: #123b72;
+      color: white;
+    }
+
+    .sell {
+      background: #e9eef7;
+      color: #123b72;
+    }
+
+    .section {
+      padding: 25px 18px;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+    }
+
+    .categories {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+    }
+
+    .category {
+      background: white;
+      padding: 13px 18px;
+      border-radius: 10px;
+      white-space: nowrap;
+      border: 1px solid #eee;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .product {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .product-image {
+      height: 120px;
+      background: #e9eef7;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #123b72;
+      font-weight: bold;
+      margin-top: 7px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #123b72;
+      color: white;
+      margin-top: 30px;
+    }
+
+    @media (min-width: 700px) {
+      .products {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>This is my new website.</p>
+
+<header>
+  <div class="top">
+    <div class="logo">🏫 School Marketplace</div>
+    <button class="account">My Account</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Buy & Sell Within Your School</h1>
+  <p>A simple marketplace for students and teachers.</p>
+
+  <input
+    class="search"
+    type="search"
+    placeholder="Search for products..."
+  >
+
+  <div class="buttons">
+    <button class="btn buy">🛒 Start Shopping</button>
+    <button class="btn sell">📦 Sell an Item</button>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Categories</h2>
+
+  <div class="categories">
+    <div class="category">📚 Books</div>
+    <div class="category">👕 Clothing</div>
+    <div class="category">🎒 School Items</div>
+    <div class="category">💻 Electronics</div>
+    <div class="category">🍪 Food</div>
+    <div class="category">✨ Others</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Featured Products</h2>
+
+  <div class="products">
+
+    <div class="product">
+      <div class="product-image">Product Photo</div>
+      <h3>Sample Book</h3>
+      <p>School textbook</p>
+      <div class="price">₦5,000</div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">Product Photo</div>
+      <h3>School Bag</h3>
+      <p>Good condition</p>
+      <div class="price">₦8,000</div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">Product Photo</div>
+      <h3>Calculator</h3>
+      <p>Scientific calculator</p>
+      <div class="price">₦6,500</div>
+    </div>
+
+    <div class="product">
+      <div class="product-image">Product Photo</div>
+      <h3>School Shoes</h3>
+      <p>Gently used</p>
+      <div class="price">₦10,000</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 School Marketplace</p>
+  <p>Buy • Sell • Connect</p>
+</footer>
+
 </body>
 </html>
