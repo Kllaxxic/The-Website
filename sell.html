@@ -157,12 +157,59 @@
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-  document.getElementById("sellForm").addEventListener("submit", function(event) {
+  const SUPABASE_URL = "https://rqfdgegbryvxtkzdjszj.supabase.co";
+  const SUPABASE_KEY = "PASTE_YOUR_PUBLISHABLE_KEY_HERE";
+
+  const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  document.getElementById("sellForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    document.getElementById("message").textContent =
-      "Your item form is ready. We will connect it to the marketplace next.";
+    const message = document.getElementById("message");
+
+    const {
+      data: { user },
+      error: userError
+    } = await supabaseClient.auth.getUser();
+
+    if (userError || !user) {
+      message.textContent = "Please log in before listing an item.";
+      return;
+    }
+
+    const name = document.getElementById("productName").value.trim();
+    const price = Number(document.getElementById("price").value);
+    const category = document.getElementById("category").value;
+    const description = document.getElementById("description").value.trim();
+    const quantity = Number(document.getElementById("quantity").value);
+
+    message.textContent = "Listing your item...";
+
+    const { error } = await supabaseClient
+      .from("products")
+      .insert({
+        name: name,
+        price: price,
+        category: category,
+        description: description,
+        quantity: quantity,
+        seller_id: user.id
+      });
+
+    if (error) {
+      message.textContent = error.message;
+      return;
+    }
+
+    message.textContent = "Your item has been listed successfully!";
+
+    document.getElementById("sellForm").reset();
   });
 </script>
 
